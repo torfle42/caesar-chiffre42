@@ -14,6 +14,10 @@ public class main {
         for (char c = 'a'; c <= 'z'; c++) {
             alphabet.add(c);
         }
+        ArrayList<Character> ALPHABET = new ArrayList<>();
+        for (char c = 'A'; c <= 'Z'; c++) {
+            ALPHABET.add(c);
+        }
         StringBuilder result = new StringBuilder();
         for (char c : input.toCharArray()) {
             if (alphabet.contains(c)) {
