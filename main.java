@@ -1,13 +1,29 @@
 import java.util.*;
 public class main {
-    public static void main(String[] args) {
-        System.out.println("Enter a string to encode");
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        System.out.println("Enter the shift value:");
-        int shift = scanner.nextInt();
+    //Hier beginnt die Ausführung.
+    //Abfragen werden getätigt und in ln.12 an encode() übergeben, das dann verschlüsselt und zurückgibt.
+    public static void main(String[] args) { 
+        Scanner scanner = new Scanner(System.in); //erlaubt Eingaben von der Konsole
+        System.out.println("Soll ver- oder entschlüsselt werden? (v/e):");
+        if (scanner.nextLine().equals("e")){
+            System.out.println("Hier String eingeben, der verschlüsselt werden soll:");
+            String input = scanner.nextLine();
+            System.out.println("Um wie viele Stellen soll verschoben werden?");
+            int shift = scanner.nextInt();
+            System.out.println(encode(input, shift));
+        }
+        else if(scanner.nextLine().equals("v")){
+            System.out.println("Hier String eingeben, der entschlüsselt werden soll:");
+            String input = scanner.nextLine();
+            System.out.println("Um wie viele Stellen wurde verschoben?");
+            int shift = 26-scanner.nextInt(); //verschiebt zurück, um zu entschlüsseln
+            System.out.println(encode(input, shift));
+        }
+        else{
+            System.out.println("Ungültige Eingabe. Bitte 'v' oder 'e' eingeben.");
+            return;
+        }
         scanner.close();
-        System.out.println(encode(input, shift));
     }
     public static String encode(String input, int shift) {
         ArrayList<Character> alphabet = new ArrayList<>();
